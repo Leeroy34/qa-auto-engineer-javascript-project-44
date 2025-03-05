@@ -1,15 +1,13 @@
 #!/usr/bin/env node
 import askName from "../src/cli.js";
 import readlineSync from "readline-sync";
+import { checkCorrectAnswer } from "../src/index.js";
+import { getRandomNumber } from "../src/index.js";
 
-const name = askName();
 
-function getRandomNumber() {
-  let number = Math.floor(Math.random() * 100) + 1;
-  return number;
-}
 
 function brainEven() {
+  const name = askName();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   let i = 0;
@@ -21,16 +19,10 @@ function brainEven() {
 
     const correctAnswer = number % 2 === 0 ? "yes" : "no";
 
-    if (answer === correctAnswer) {
-      console.log("Correct!");
-      i += 1;
-    } else {
-      console.log(
-        `"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`
-      );
-      console.log(`Let's try again, ${name}!`);
-      return
-    }
+    const check = checkCorrectAnswer(answer, correctAnswer, name);
+
+    if (check) i+=1;
+    else return;
   }
   console.log(`Congratulations, ${name}!`);
 }
