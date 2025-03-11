@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-
 import askName from '../src/cli.js';
-import { checkCorrectAnswer , getRandomNumber } from '../src/index.js';
-
+import { checkCorrectAnswer, getRandomNumber } from '../src/index.js';
 const isPrime = (num) => {
   if (num < 2) return false;
   for (let i = 2; i <= Math.sqrt(num); i += 1) {
@@ -11,27 +9,19 @@ const isPrime = (num) => {
   }
   return 'yes';
 };
-
 function brainPrime() {
   const name = askName();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-
   let i = 0;
-
   while (i < 3) {
     const number = getRandomNumber();
-
     const correctAnswer = isPrime(number);
-
     console.log(`Question: ${number}`);
-
     const answer = readlineSync.question('Your answer: ');
     const check = checkCorrectAnswer(answer, correctAnswer, name);
-
     if (check) i += 1;
     else return;
   }
   console.log(`Congratulations, ${name}!`);
 }
-
 brainPrime();
