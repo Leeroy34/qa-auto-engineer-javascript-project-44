@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 
-export function getRandomNumber() {
-    let number = Math.floor(Math.random() * 100) + 1;
-    return number;
-  }
+export function getRandomNumber(max = 100, min = 1) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
   
 
 
