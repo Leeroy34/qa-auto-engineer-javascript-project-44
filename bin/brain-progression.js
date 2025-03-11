@@ -20,7 +20,7 @@ function brainProgression() {
   while (i < 3) {
     const start = getRandomNumber();
     const step = getRandomNumber(10);
-    const length = getRandomNumber(10, 4);
+    const length = getRandomNumber(5, 10);
     const progression = generateProgression(start, step, length);
     const hiddenIndex = getRandomNumber(0, length - 1);
     const correctAnswer = progression[hiddenIndex].toString();
