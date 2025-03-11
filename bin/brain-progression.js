@@ -22,7 +22,6 @@ function brainProgression() {
         progression[hiddenIndex] = "..";
 
         console.log(`Question: ${progression.join(" ")}`);
-
         const answer = readlineSync.question("Your answer: ");
 
         if (checkCorrectAnswer(answer, correctAnswer, name)) {
