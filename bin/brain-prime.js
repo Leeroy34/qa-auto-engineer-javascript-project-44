@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-import askName from "../src/cli.js";
-import readlineSync from "readline-sync";
-import { checkCorrectAnswer } from "../src/index.js";
-import { getRandomNumber } from "../src/index.js";
+import readlineSync from 'readline-sync';
+
+import askName from '../src/cli.js';
+import { checkCorrectAnswer , getRandomNumber } from '../src/index.js';
 
 const isPrime = (num) => {
   if (num < 2) return false;
@@ -25,7 +25,7 @@ function brainPrime() {
 
     console.log(`Question: ${number}`);
 
-    const answer = readlineSync.question("Your answer: ");
+    const answer = readlineSync.question('Your answer: ');
     const check = checkCorrectAnswer(answer, correctAnswer, name);
 
     if (check) i += 1;
