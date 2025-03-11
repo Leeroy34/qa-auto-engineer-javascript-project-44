@@ -8,3 +8,6 @@
 
 even-games:
 https://asciinema.org/a/jRoyMEMu0zFNoAiJmlCXqi84G
+
+gcd-game:
+https://asciinema.org/a/AeJcsptutgdicCPf4Skbr4kkH
