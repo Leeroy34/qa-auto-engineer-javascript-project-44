@@ -19,7 +19,7 @@ function brainProgression() {
         const hiddenIndex = getRandomNumber(0, length - 1);
         const correctAnswer = progression[hiddenIndex].toString();
 
-        progression[hiddenIndex] = "..";
+        progression[hiddenIndex] = ".. ";
 
         console.log(`Question: ${progression.join(" ")}`);
         const answer = readlineSync.question("Your answer: ");
