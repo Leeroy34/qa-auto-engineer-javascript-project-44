@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import askName from "../src/cli.js";
 import readlineSync from "readline-sync";
 import { checkCorrectAnswer } from "../src/index.js";
