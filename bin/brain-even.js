@@ -2,6 +2,7 @@
 import readlineSync from 'readline-sync';
 import askName from '../src/cli.js';
 import { checkCorrectAnswer, getRandomNumber } from '../src/index.js';
+
 function brainEven() {
   const name = askName();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');

@@ -2,6 +2,7 @@
 import readlineSync from 'readline-sync';
 import askName from '../src/cli.js';
 import { checkCorrectAnswer, getRandomNumber } from '../src/index.js';
+
 function gcd(x, y) {
   if (y === 0) return x;
   return gcd(y, x % y);

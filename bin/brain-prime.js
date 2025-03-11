@@ -2,6 +2,7 @@
 import readlineSync from 'readline-sync';
 import askName from '../src/cli.js';
 import { checkCorrectAnswer, getRandomNumber } from '../src/index.js';
+
 const isPrime = (num) => {
   if (num < 2) return false;
   for (let i = 2; i <= Math.sqrt(num); i += 1) {
