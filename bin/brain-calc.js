@@ -15,7 +15,7 @@ function brainCalc() {
     const operators = ["+", "-", "*"];
     const randomOperator =
       operators[Math.floor(Math.random() * operators.length)];
-    console.log(`Question: ${number1} + ${number2}`);
+      console.log(`Question: ${number1} ${randomOperator} ${number2}`);
     const answer = readlineSync.question("Your answer:").toLowerCase();
     let correctAnswer = '';
 
@@ -24,10 +24,10 @@ function brainCalc() {
         correctAnswer = (number1 + number2).toString();
         break;
       case "-":
-        correctAnswer = (number1 + number2).toString();
+        correctAnswer = (number1 - number2).toString();
         break;
       case "*":
-        correctAnswer = (number1 * number2.toString());
+        correctAnswer = (number1 * number2).toString();
         break;
     }
 
