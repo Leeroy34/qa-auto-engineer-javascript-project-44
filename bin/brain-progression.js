@@ -1,28 +1,22 @@
 import askName from "../src/cli.js";
 import readlineSync from "readline-sync";
-import { checkCorrectAnswer } from "../src/index.js";
-import { getRandomNumber } from "../src/index.js";
+import { checkCorrectAnswer, getRandomNumber } from "../src/index.js";
 
 const generateProgression = (start, step, length) => {
-  const progression = [];
-  for (let i = 0; i < length; i += 1) {
-    progression.push(start + i * step);
-  }
-  return progression;
+  return Array.from({ length }, (_, i) => start + i * step);
 };
 
 function brainProgression() {
   const name = askName();
   console.log("What number is missing in the progression?");
 
-  let i = 0;
-
-  while (i < 3) {
-    const start = getRandomNumber();
-    const step = getRandomNumber(10);
+  for (let i = 0; i < 3; i++) {
+    const start = getRandomNumber(1, 50);
+    const step = getRandomNumber(1, 10);
     const length = getRandomNumber(5, 10);
+
     const progression = generateProgression(start, step, length);
-    const hiddenIndex = getRandomNumber(0, length - 1);
+    const hiddenIndex = getRandomNumber(0, length - 1); // Скрываем случайный элемент
     const correctAnswer = progression[hiddenIndex].toString();
 
     progression[hiddenIndex] = "..";
@@ -30,10 +24,11 @@ function brainProgression() {
 
     const answer = readlineSync.question("Your answer: ");
 
-    const check = checkCorrectAnswer(answer, correctAnswer, name);
-
-    if (check) i += 1;
-    else return;
+    if (checkCorrectAnswer(answer, correctAnswer, name)) {
+      continue;
+    } else {
+      return;
+    }
   }
   console.log(`Congratulations, ${name}!`);
 }
